@@ -6,8 +6,8 @@ const toDoDate = document.getElementById("to-do-date");
 const inputInvalid = document.getElementById("input-invalid");
 
 // Estabelecendo a data minima do input
-let dateMin = new Date().toJSON().slice(0,10)
-toDoDate.setAttribute("min", dateMin)
+let dateMin = new Date().toJSON().slice(0, 10);
+toDoDate.setAttribute("min", dateMin);
 
 let list = JSON.parse(localStorage.getItem("list")) || [];
 
@@ -74,16 +74,16 @@ function render() {
     dateImg.alt = "calendário";
 
     const divDate = document.createElement("div");
-    divDate.className = "div-date"
+    divDate.className = "div-date";
     const date = document.createElement("p");
     date.className = "date-p";
-    
+
     const deleteButton = document.createElement("button");
     const deleteImg = document.createElement("img");
     deleteImg.className = "icons";
     deleteImg.src = "https://image.flaticon.com/icons/png/512/1251/1251305.png";
     deleteImg.alt = "lixeira";
-    
+
     deleteButton.appendChild(deleteImg);
     toDoDiv.appendChild(checkbox);
     toDoDiv.appendChild(p);
@@ -119,7 +119,6 @@ function render() {
 }
 
 function showDate(dateList, id, divDate, date) {
-
   // Instanciando a data do dia
   let today = new Date();
   let todayBr = today.toLocaleDateString("pt-BR", { timeZone: "UTC" });
@@ -134,7 +133,6 @@ function showDate(dateList, id, divDate, date) {
         date.innerText = `criado em ${todayBr} -- concluir até ${deadline}`;
       }
       divDate.classList.toggle("visible");
-
     }
   }
 }
@@ -147,7 +145,11 @@ function del(id) {
 
   modal.style.display = "flex";
 
-  buttonYes.addEventListener("click", () => {
+  buttonNo.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  buttonYes.onclick = () => {
     for (let i = 0; i < list.length; i++) {
       const note = list[i];
       if (note.id === id) {
@@ -158,11 +160,7 @@ function del(id) {
     localStorage.setItem("list", JSON.stringify(list));
     render();
     modal.style.display = "none";
-  });
-
-  buttonNo.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
+  }
 }
 
 function toggle(id) {
