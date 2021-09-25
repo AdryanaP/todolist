@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/global.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/512/1102/1102523.png" type="image/x-icon">
+
+    <title>TO DO LIST</title>
+</head>
+
+<body>
+    <header>
+        <img src="./assets/logo.png" alt="logo to do list" id="logo">
+        <button class="button" type="button" id="del">
+            <img src="https://bit.ly/3kHE2lY" alt="icon atenção" class="icons" id="icon-atencao">
+            APAGAR TUDO '-'
+        </button>
+        <form id="to-do-form">
+            <label for="to-do-input">Adicione uma tarefa:</label>
+            <input type="text" name="to-do-input" id="to-do-input" placeholder="insira uma tarefa">
+            <p id="input-invalid"></p>
+            <label for="to-do-date">Prazo para terminar a tarefa:</label>
+            <input type="date" name="to-do-date" id="to-do-date">
+            <div id="buttons-form">
+                <button class="button" type="button" id="add">Adicionar</button>
+                <button class="button" type="reset" id="reset">Limpar</button>
+            </div>
+        </form>
+    </header>
+    <main>
+        <div id="content-list">
+        </div>
+        <div id="modal-delete">
+            <div id="modal-content">
+                <p id="modal-text">Tem certeza que deseja apagar essa tarefa?</p>
+                <button class="button" type="button" id="btn-yes">Confirmar</button>
+                <button class="button" type="reset" id="btn-no">Cancelar</button>
+            </div>
+        </div>
+    </main>
+    <script src="./script/app.js"></script>
+</body>
+
+</html>
