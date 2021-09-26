@@ -17,7 +17,7 @@ header {
     padding: 2rem;
     justify-content: center;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 #logo {
@@ -69,7 +69,7 @@ main {
 #input-invalid {
     display: none;
     color: rgb(243, 12, 12);
-    font-size: 12px;
+    font-size: 16px;
     font-weight: normal;
     margin: 0;
 }
@@ -79,16 +79,19 @@ button#buttons-form {
 }
 
 button#add {
-    margin-top: 8px; 
+    min-width: 5.5rem;
+    margin-top: 14px; 
     background: #a0d3ed;
 }
 
 button#reset {
-    margin-top: 8px; 
+    min-width: 5.5rem;
+    margin-top: 14px; 
     background: #f99da4;
 }
 
 button#del {
+    min-width: 11rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,8 +110,8 @@ button#del {
 
 #content-list {
     text-align: center;
-    width: 22rem;
-    min-height: 15rem;
+    width: 30rem;
+    min-height: 20rem;
     margin-left: auto;
     margin-right: auto;
     border: 2px dashed #000;
@@ -140,6 +143,8 @@ button#del {
 
 .to-do-text {
     margin: 0;
+    font-size: 22px;
+    cursor: pointer;
 }
 
 .to-do-card button {
@@ -153,8 +158,8 @@ button#del {
 }
 
 .icons {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     cursor: pointer;
 }
 
@@ -169,7 +174,7 @@ button#del {
 .date-p {
     color: rgb(104, 104, 104);
     margin: 0;
-    font-size: 0.8em;
+    font-size: 16px;
 }
 
 .visible {
@@ -211,17 +216,14 @@ button#del {
 
 #modal-content {
     background-color: #ffffee;
-    padding: 1rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding: 2rem;
     border-radius: 5px;
-    width: 20rem;
     margin: 0% auto;
 }
 
 #modal-text {
     font-weight: 700;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .button {
@@ -230,7 +232,7 @@ button#del {
     margin: 0 5px;
     transition: .2s ease-in-out;
     font-family: 'Caveat', cursive;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .button:hover {
@@ -257,8 +259,10 @@ button#del {
         width: 70vw;
     }
     #content-list {
-        padding: 0;
+        padding: 0px 15px 0px 15px;
         width: auto;
+        margin-left: 5px;
+        margin-right: 5px;
     }
     #logo {
         display: none;

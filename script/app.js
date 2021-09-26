@@ -16,14 +16,15 @@ addBtn.addEventListener("click", () => {
   if (toDoInput.value.trim() === "" || toDoInput.value.length < 10) {
     inputInvalid.style.display = "block";
     inputInvalid.innerText = "A sua tarefa precisa ter mais de 10 caracteres";
-  } else if (toDoInput.value.length > 30) {
+  } else if (toDoInput.value.length > 25) {
     inputInvalid.style.display = "block";
-    inputInvalid.innerText = "A sua tarefa precisa ter menos que 30 caracteres";
+    inputInvalid.innerText = "A sua tarefa precisa ter menos que 25 caracteres";
   } else {
     inputInvalid.style.display = "none";
     addItemToList();
     render();
     toDoInput.value = "";
+    toDoDate.value = "";
     toDoInput.focus();
   }
 });
@@ -62,7 +63,7 @@ function render() {
     checkbox.name = "checkbox";
     checkbox.type = "checkbox";
 
-    const p = document.createElement("p");
+    const p = document.createElement("label");
     p.className = "to-do-text";
     p.innerText = note.title;
 
@@ -105,6 +106,11 @@ function render() {
       toggle(note.id);
       render();
     });
+
+    p.addEventListener("click", () => {
+      toggle(note.id);
+      render();
+    })
 
     // Botão para deletar a tarefa
     deleteButton.addEventListener("click", () => {
