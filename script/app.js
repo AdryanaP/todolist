@@ -15,8 +15,8 @@ let list = JSON.parse(localStorage.getItem("list")) || [];
 addBtn.addEventListener("click", () => {
   if (toDoInput.value.trim() === "" || toDoInput.value.length < 10) {
     inputInvalid.style.display = "block";
-    inputInvalid.innerText = "A sua tarefa precisa ter mais de 10 caracteres";
-  } else if (toDoInput.value.length > 25) {
+    inputInvalid.innerText = "A sua tarefa precisa ter 10 caracteres ou mais";
+  } else if (toDoInput.value.length > 24) {
     inputInvalid.style.display = "block";
     inputInvalid.innerText = "A sua tarefa precisa ter menos que 25 caracteres";
   } else {
@@ -27,6 +27,11 @@ addBtn.addEventListener("click", () => {
     toDoDate.value = "";
     toDoInput.focus();
   }
+});
+
+// Retirando o alerta de input invalido quando resetar 
+resetBtn.addEventListener("click", () => {
+  inputInvalid.style.display = "none";
 });
 
 // Criando um id aleatório para o localStorage
@@ -60,7 +65,7 @@ function render() {
 
     const checkbox = document.createElement("input");
     checkbox.className = "checkbox";
-    checkbox.name = "checkbox";
+    checkbox.name = note.id;
     checkbox.type = "checkbox";
 
     const p = document.createElement("label");
@@ -110,7 +115,7 @@ function render() {
     p.addEventListener("click", () => {
       toggle(note.id);
       render();
-    })
+    });
 
     // Botão para deletar a tarefa
     deleteButton.addEventListener("click", () => {
@@ -166,7 +171,7 @@ function del(id) {
     localStorage.setItem("list", JSON.stringify(list));
     render();
     modal.style.display = "none";
-  }
+  };
 }
 
 function toggle(id) {
@@ -180,9 +185,26 @@ function toggle(id) {
 }
 
 delBtn.addEventListener("click", () => {
-  localStorage.removeItem("list");
+  const modal = document.getElementById("modal-delete-all");
+  const buttonYes = document.getElementById("btn-yes-all");
+  const buttonNo = document.getElementById("btn-no-all");
+
+  modal.style.display = "flex";
+
+  buttonNo.onclick = () => {
+    modal.style.display = "none";
+  };
+
+  buttonYes.onclick = () => {
+    delAll(modal)
+    }
+});
+
+function delAll(modal) {
+  localStorage.removeItem("list")
   list = [];
   render();
-});
+  modal.style.display = "none";
+}
 
 render();

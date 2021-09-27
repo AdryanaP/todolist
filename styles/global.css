@@ -21,7 +21,7 @@ header {
 }
 
 #logo {
-    position: fixed;
+    position: absolute;
     z-index: -1;
     width: 8rem;
     left: 2rem;
@@ -80,13 +80,13 @@ button#buttons-form {
 
 button#add {
     min-width: 5.5rem;
-    margin-top: 14px; 
+    margin-top: 14px;
     background: #a0d3ed;
 }
 
 button#reset {
     min-width: 5.5rem;
-    margin-top: 14px; 
+    margin-top: 14px;
     background: #f99da4;
 }
 
@@ -110,7 +110,7 @@ button#del {
 
 #content-list {
     text-align: center;
-    width: 30rem;
+    max-width: 30rem;
     min-height: 20rem;
     margin-left: auto;
     margin-right: auto;
@@ -127,7 +127,7 @@ button#del {
     display: flex;
     align-items: center;
     flex-direction: row;
-    flex-wrap: wrap;
+    word-break: break-word;
     justify-content: flex-start;
     border-bottom: 2px solid #000;
     gap: 5px;
@@ -184,18 +184,28 @@ button#del {
 
 @keyframes open {
     from {
-      opacity: 0;
+        opacity: 0;
     }
-  
+
     to {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
+
+@keyframes close {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
 
 
-/* Modal Delete */
+/* Modal Delete e Modal Delete All */
 
-#modal-delete {
+#modal-delete, #modal-delete-all {
     display: none;
     text-align: center;
     position: fixed;
@@ -214,14 +224,14 @@ button#del {
     justify-content: center;
 }
 
-#modal-content {
+.modal-content {
     background-color: #ffffee;
     padding: 2rem;
     border-radius: 5px;
     margin: 0% auto;
 }
 
-#modal-text {
+.modal-text {
     font-weight: 700;
     font-size: 24px;
 }
@@ -233,6 +243,7 @@ button#del {
     transition: .2s ease-in-out;
     font-family: 'Caveat', cursive;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -243,37 +254,92 @@ button#del {
     transform: translateY(4px);
 }
 
-#btn-yes {
+#btn-yes, #btn-yes-all {
     background-color: #a0d3ed;
 }
 
-#btn-no {
+#btn-no, #btn-no-all {
     background-color: #f99da4;
 }
 
 /* Responsividade */
+
+@media (min-width: 1800px) {
+    #content-list {
+        min-height: 35rem;
+        width: 35rem; 
+    }
+    header {
+        font-size: 24px;
+    }
+    #logo {
+        width: 10rem;
+    }
+    .to-do-text {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 690px) {
+    #content-list {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    button#del {
+        top: auto;
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
+}
 
 @media (max-width: 580px) {
     #modal-content {
         padding: 1rem;
         width: 70vw;
     }
+
     #content-list {
+        max-width: unset;
         padding: 0px 15px 0px 15px;
-        width: auto;
         margin-left: 5px;
         margin-right: 5px;
     }
+
     #logo {
         display: none;
     }
 }
 
-@media (max-width: 500px) {
-    button#del {
-        top: auto;
-        bottom: 0.5rem;
-        right: 0.5rem;
+@media (max-width: 375px) {
+    .to-do-text {
+        font-size: 18px;
     }
-    
+
+    #content-list {
+        padding: 0px 5px 0px 5px;
+    }
+
+    .to-do-card {
+        gap: 2px;
+    }
+}
+
+@media (max-width: 320px) {
+    .to-do-text {
+        font-size: 16px;
+    }
+
+    .icons {
+        width: 18px;
+        height: 18px;
+    }
+
+    #content-list {
+        border: none;
+        margin: 0;
+    }
+
+    .to-do-card {
+        gap: 1px;
+    }
 }

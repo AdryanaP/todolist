@@ -9,14 +9,10 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./styles/global.css">
 
-    <!-- Fonts -->
+    <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Icon -->
     <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/512/1102/1102523.png" type="image/x-icon">
@@ -47,10 +43,17 @@
         <div id="content-list">
         </div>
         <div id="modal-delete">
-            <div id="modal-content">
-                <p id="modal-text">Tem certeza que deseja apagar essa tarefa?</p>
+            <div class="modal-content">
+                <p class="modal-text">Tem certeza que deseja apagar essa tarefa?</p>
                 <button class="button" type="button" id="btn-yes">Confirmar</button>
                 <button class="button" type="reset" id="btn-no">Cancelar</button>
+            </div>
+        </div>
+        <div id="modal-delete-all">
+            <div class="modal-content">
+                <p class="modal-text">Tem certeza que deseja apagar <em><u>todas</u></em> as tarefas?</p>
+                <button class="button" type="button" id="btn-yes-all">Confirmar</button>
+                <button class="button" type="reset" id="btn-no-all">Cancelar</button>
             </div>
         </div>
     </main>
