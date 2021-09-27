@@ -1,0 +1,187 @@
+html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Caveat', cursive;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    border: none;
+    text-align: center;
+    background: #ffffee;
+}
+
+header {
+    display: flex;
+    padding: 2rem;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+#logo {
+    position: absolute;
+    z-index: -1;
+    width: 8rem;
+    left: 2rem;
+}
+
+main {
+    padding-bottom: 2rem;
+}
+
+/* Lista com to-dos */
+
+#content-list {
+    text-align: center;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px dashed #000;
+    border-bottom: none;
+    border-top: none;
+    padding-left: 6rem;
+    padding-right: 6rem;
+}
+
+/* To-do card */
+
+.to-do-card {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-bottom: 2px solid #000;
+    gap: 5px;
+}
+
+.checkbox {
+    cursor: pointer;
+}
+
+.check {
+    text-decoration: line-through;
+}
+
+.to-do-text {
+    margin: 0;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.to-do-card button {
+    background: none;
+    border: none;
+    padding: 5px 0px 0px 0px;
+}
+
+.id-button {
+    margin-left: auto;
+}
+
+.icons {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+/* Modal Id */
+
+.div-id {
+    display: none;
+    text-align: right;
+    border-bottom: 2px dashed rgb(104, 104, 104);
+}
+
+.id-p {
+    color: rgb(104, 104, 104);
+    margin: 0;
+    font-size: 18px;
+}
+
+.visible {
+    display: block;
+    animation: open 300ms ease-in-out forwards;
+}
+
+@keyframes open {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes close {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/* Responsividade */
+
+@media (min-width: 1800px) {
+    #logo {
+        width: 10rem;
+    }
+}
+
+@media (max-width: 860px) {
+    #content-list {
+        max-width: unset;
+        padding: 0px 25px 0px 25px;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+}
+
+@media (max-width: 675) {
+    #content-list {
+        padding: 0px 5px 0px 5px;
+        width: auto;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+    .to-do-text {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 580px) {
+    #logo {
+        display: none;
+    }
+}
+
+@media (max-width: 375px) {
+    .to-do-card {
+        gap: 2px;
+    }
+}
+
+@media (max-width: 320px) {
+    .to-do-text {
+        font-size: 16px;
+    }
+
+    .icons {
+        width: 18px;
+        height: 18px;
+    }
+
+    #content-list {
+        border: none;
+        margin: 0;
+    }
+
+    .to-do-card {
+        gap: 1px;
+    }
+}
